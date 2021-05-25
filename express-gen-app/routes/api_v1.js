@@ -6,6 +6,7 @@ apiv1.get('/', function(req, res) {
 });
 
 apiv1.get('/users', function(req, res) {
+  res.header("Content-Type",'application/json');
   res.json({api: {v1: {users: ["Pierre", "Khalid", "Chaimae", "Ouassim", "Nadia"]}}});
 });
 
