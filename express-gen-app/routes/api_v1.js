@@ -6,7 +6,7 @@ apiv1.get('/', function(req, res) {
 });
 
 apiv1.get('/users', function(req, res) {
-  res.send('List of APIv1 users.');
+  res.send({});
 });
 
 module.exports = apiv1;
