@@ -16,7 +16,7 @@ var app = express();
 //Connect to MongoDB
 MongoClient.connect('mongodb+srv://db-user:db-user123@cluster0.0ifya.mongodb.net/projects_v1?retryWrites=true&w=majority')
 .then(client =>{
-  const db = client.db('projects_v1b');
+  const db = client.db('projects_v1');
   //const collection = db.collection('your-collection');
   app.locals.db = db;
 });
