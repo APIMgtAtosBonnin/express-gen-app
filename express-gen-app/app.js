@@ -3,13 +3,23 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const { MongoClient } = require("mongodb");
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var apiv1Router = require('./routes/api_v1');
 var apiv2Router = require('./routes/api_v2');
+var apiv3Router = require('./routes/api_v3');
 
 var app = express();
+
+//Connect to MongoDB
+MongoClient.connect('mongodb+srv://db-user:db-user123@cluster0.0ifya.mongodb.net/projects_v1?retryWrites=true&w=majority', { useUnifiedTopology: true })
+.then(client =>{
+  const db = client.db('projects_v1');
+  //const collection = db.collection('your-collection');
+  app.locals.db = db;
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -28,6 +38,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api/v1', apiv1Router);
 app.use('/api/v2', apiv2Router);
+app.use('/api/v3', apiv3Router);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
