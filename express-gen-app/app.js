@@ -14,7 +14,7 @@ var apiv3Router = require('./routes/api_v3');
 var app = express();
 
 //Connect to MongoDB
-MongoClient.connect('mongodb+srv://db-user:db-user123@cluster0.0ifya.mongodb.net/projects_v1?retryWrites=true&w=majority')
+MongoClient.connect('mongodb+srv://db-user:db-user123@cluster0.0ifya.mongodb.net/projects_v1?retryWrites=true&w=majority', { useUnifiedTopology: true })
 .then(client =>{
   const db = client.db('projects_v1');
   //const collection = db.collection('your-collection');
