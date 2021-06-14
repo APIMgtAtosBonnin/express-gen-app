@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const { MongoClient } = require("mongodb");
-const dbconfig = require('./secrets.json');
+//const dbconfig = require('./secrets.json');
 
 
 var indexRouter = require('./routes/index');
@@ -16,9 +16,9 @@ var apiv3Router = require('./routes/api_v3');
 var app = express();
 
 //Connect to MongoDB
-MongoClient.connect(dbconfig.database.mongo_uri, { useUnifiedTopology: true })
+MongoClient.connect("mongodb+srv://db-user:db-user123@cluster0.0ifya.mongodb.net/projects_v1?retryWrites=true&w=majority", { useUnifiedTopology: true })
 .then(client =>{
-  const db = client.db(dbconfig.database.db);
+  const db = client.db("projects_v1");
   //const collection = db.collection('your-collection');
   app.locals.db = db;
 });
