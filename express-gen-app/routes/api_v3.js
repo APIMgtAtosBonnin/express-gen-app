@@ -1,6 +1,6 @@
 var express = require('express');
 var apiv3 = express.Router();
-//var dbconfig = require('../database/dbconfig.js');
+
 
 //Routes
 apiv3.get('/', async function(req, res) {
