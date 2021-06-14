@@ -1,12 +1,25 @@
 const dbconfig = require('./secrets.json');
 const { MongoClient } = require("mongodb");
 
-// console.log(dbconfig.database.mongo_uri);
-// console.log(dbconfig.database.db);
 
-MongoClient.connect(dbconfig.database.mongo_uri, { useUnifiedTopology: true })
-.then(client =>{
-  const db = client.db(dbconfig.database.db);
-  //const collection = db.collection('your-collection');
-  console.log(db.listCollections().toArray());
-});
+
+// Create a new MongoClient
+// const client = new MongoClient(process.env.MONGO_URI, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
+//
+// async function run() {
+//   try {
+//     // Connect the client to the server
+//     await client.connect();
+//
+//     // Establish and verify connection
+//     await client.db("admin").command({ ping: 1 });
+//     console.log("Connected successfully to server");
+//   } finally {
+//     // Ensures that the client will close when you finish/error
+//     await client.close();
+//   }
+// }
+// run().catch(console.dir);
