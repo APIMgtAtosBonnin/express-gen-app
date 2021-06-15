@@ -2,5 +2,9 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title} !!!
-  p render links to API routes
+  p Welcome to #{title} !
+  p Available API routes:
+  p: #[a(href="https://express-gen-nodeapp.herokuapp.com/api/v3/") /api/v3]
+  p: #[a(href="https://express-gen-nodeapp.herokuapp.com/api/v3/clients") /api/v3/clients]
+  p: #[a(href="https://express-gen-nodeapp.herokuapp.com/api/v3/contracts") /api/v3/contracts]
+  p: #[a(href="https://express-gen-nodeapp.herokuapp.com/api/v3/service_providers") /api/v3/service_providers]
